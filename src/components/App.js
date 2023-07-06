@@ -45,19 +45,24 @@ const App = () => {
         </form>
 
         <div>
-           {error && <p style={{ color: 'red'}}>{error}</p>}
+           {error && <p style={{ color: "red" }}>{error}</p>}
 
-           {todoArray.length!=0 &&
-              (todoArray.map((element) => (
-                 <div id={element.id}>
-                    <p>
-                       <span>{element.todo}{" "}</span>
-                       <button onClick={()=>{deleteTodo(element.id)}}>
-                          Delete
-                       </button>
-                    </p>
-                 </div>
-              )))}
+           {todoArray.length != 0 && (
+              <ul>
+                 {todoArray.map((element) => (
+                 <li id={element.id}>
+                    <span>{element.todo} </span>
+                    <button
+                       onClick={() => {
+                          deleteTodo(element.id);
+                       }}
+                    >
+                       Delete
+                    </button>
+                 </li>
+                 ))}
+              </ul>
+           )}
         </div>
      </div>
   );
